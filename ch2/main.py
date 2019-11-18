@@ -47,3 +47,7 @@ def split_train_test(data, test_ratio):
 train_set, test_set = split_train_test(housing, 0.2)
 print(len(train_set), "train +", len(test_set), "test")
 
+import hashlib
+
+def test_set_check(identifier, test_ratio, hash):
+    return hash(np.int64(identifier)).digest()[-1] < 256 * test_ratio
